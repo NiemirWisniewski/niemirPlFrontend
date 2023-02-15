@@ -1,1 +1,179 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+
+body {
+  margin: 0;
+  background: #020c15;
+  color: #d6ffff;
+}
+
+.nawigationBar {
+  justify-content: center;
+  display: flex;
+  padding: 16px;
+  color: #EEEEEE;
+  background-image: linear-gradient(90deg, #503804, #091d49);
+}
+
+.header-label {
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+}
+
+.registrationForm{
+  display: flex;
+  justify-content: center;
+  height: 130px;
+  flex-flow: wrap;
+  padding: 32px 32px 8px 32px;
+}
+
+mat-form-field {
+  width: 400px;
+}
+
+.registrationField {
+  text-align: center;
+}
+
+.form {
+  margin-top: 20px;
+  flex-basis: 900px;
+}
+
+.appa-flex-header-centered {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.appa-header-width {
+  width: 1020px;
+}
+
+.appa-headers-small {
+  font-size: 2.0em;
+  padding-right: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  line-height: 0.8em;
+  margin-bottom: 10px;
+}
+
+.appa-separator {
+  border-top: 1px solid rgb(229 229 229);
+}
+
+.submitButton{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.appa-button-register {
+  margin-top: 35px;
+  width: 120px;
+  height: 50px;
+  background-color: #deb92c;
+  border-radius: 0.75rem;
+}
+
+.create-form {
+  display: flex;
+}
+
+.appa-vertical-box-25 {
+  margin-bottom: 25px;
+}
+
+.appa-label {
+  color: gray;
+  letter-spacing: 1.25px;
+  margin-bottom: 15px;
+}
+
+.appa-flex-row-centered {
+  background-color: #04182a;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.25rem;
+  padding: 1.25rem;
+  width: 900px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.imageCreatorField {
+  display: flex;
+  margin-top: 20px;
+  min-height: 50px;
+  margin-left: 20px;
+  width: 200px;
+}
+
+.appa-horizontal-box-25 {
+  width: 25px;
+}
+
+.mat-error {
+  font-size: 14px;
+}
+
+.ngx-file-drop__drop-zone{
+  border: none!important;
+}
+
+.appa-error-text {
+  letter-spacing: 1.25px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.image-container {
+  max-width: 100px;
+  margin-left: 20px;
+}
+
+.appa-flex-row-right {
+  margin-top: 20px;
+  display: flex;
+  justify-content: left;
+
+}
+
+.imageStyling{
+  max-width: 800px;
+  border-radius: 0.25rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.postStyling{
+  padding: 1.25rem;
+  background-color: #503804;
+  width: 900px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.25rem;
+}
+
+.ql-container {
+  width: 500px;
+  min-height: 100px;
+  background-color: #99c4de;
+  color: black;
+}
+
+.ql-toolbar{
+  background-color: #ded7a4;
+}
+
+.postButton{
+  color: #99c4de;
+}
+
+
+

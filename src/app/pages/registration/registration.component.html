@@ -1,0 +1,73 @@
+<div class="appa-flex-header-centered">
+  <div class="appa-header-width">
+    <h1 class="appa-headers-small">
+      Rejestracja<br/>
+    </h1>
+    <div class="appa-separator"></div>
+  </div>
+</div>
+
+
+<div class="registrationForm">
+
+  <form class="form" (ngSubmit)="createUser()" [formGroup]="registrationForm">
+
+    <div class="registrationField">
+      <mat-form-field >
+        <mat-label>Email:</mat-label>
+        <input type="email" matInput [formControl]="email"
+               [errorStateMatcher]="sharedValidator"
+        placeholder="">
+        <mat-error *ngIf="email.hasError('email') || email.hasError('required')">
+          Adres email jest wymagany</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="registrationField">
+      <mat-form-field>
+        <mat-label>Nazwa użytkownika:</mat-label>
+        <input class="inputRegForm" type="text"
+               matInput [formControl]="username"
+               [errorStateMatcher]="sharedValidator"
+               placeholder="">
+        <mat-error class="inputErrorRegFrom"
+                   *ngIf="username.hasError('required')">
+          Nazwa użytkownika jest wymagana</mat-error>
+        <mat-error class="inputErrorRegFrom"
+                   *ngIf="username.hasError('minlength') || username.hasError('maxlength')">
+          Nazwa użytkownika musi mieć od 3 do 30 znaków.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="registrationField">
+      <mat-form-field >
+        <mat-label>Hasło:</mat-label>
+        <input class="inputRegForm" type="password"
+               matInput [formControl]="password" [errorStateMatcher]="sharedValidator"
+               placeholder="">
+        <mat-error class="inputErrorRegFrom"
+                   *ngIf="password.hasError('required')">
+          Hasło jest wymagane</mat-error>
+        <mat-error class="inputErrorRegFrom"
+                   *ngIf="password.hasError('minlength') || password.hasError('maxlength')">
+          Hasło musi mieć od 5 do 20 znaków</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="registrationField">
+      <mat-form-field>
+        <mat-label>Powtórz hasło:</mat-label>
+        <input type="password" placeholder="" [readonly]="isPasswordError()"
+               matInput [formControl]="passwordRepeat" [errorStateMatcher]="twoPasswordsValidator">
+        <mat-error>
+          Powtórzone hasło nie pasuje do podanego hasła</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="submitButton">
+      <button class="appa-button-register"
+              mat-raised-button
+              type="submit">Zarejestruj</button>
+    </div>
+  </form>
+</div>

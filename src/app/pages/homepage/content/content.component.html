@@ -1,0 +1,7 @@
+<quill-editor [formControl]="$any(content)" placeholder="Treść postu..." [modules]="quillConfig"
+              (onSelectionChanged)="onSelectionChanged($event)" (onContentChanged)="onContentChanged($event)">
+</quill-editor>
+<span
+  *ngIf="content.hasError('maxlength')" class="mat-error appa-error-text">
+        Maximum 1200 characters is allowed
+</span>
