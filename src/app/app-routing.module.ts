@@ -6,6 +6,7 @@ import {AccountComponent} from "./pages/account/account.component";
 import {HomepageComponent} from "./pages/homepage/homepage.component";
 import {PostComponent} from "./pages/post/post.component";
 import {LogoutComponent} from "./pages/logout/logout.component";
+import {BiographyComponent} from "./pages/biography/biography.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'homepage', component: HomepageComponent},
   {path: 'post', component: PostComponent},
   {path: 'singlePost', component: PostComponent},
-  {path: 'logout', component:LogoutComponent}
+  {path: 'logout', component:LogoutComponent},
+  {path: 'bio', component: BiographyComponent}
 ];
 
 @NgModule({

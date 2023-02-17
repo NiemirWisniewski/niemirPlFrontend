@@ -5,7 +5,7 @@
 body {
   margin: 0;
   background: #020c15;
-  color: #d6ffff;
+  color: #99c4de;
 }
 
 .nawigationBar {
@@ -16,9 +16,31 @@ body {
   background-image: linear-gradient(90deg, #503804, #091d49);
 }
 
+.bioContent{
+  margin-top: 4em;
+  display: flex;
+  margin-left: 25em;
+
+}
+
+.bioPhoto{
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.bioText{
+  font-family: Helvetica, Arial, sans-serif;
+  margin-left: 20px;
+  width: 700px;
+  font-size: 1.5em;
+  color: #EEEEEE;
+}
+
 .header-label {
   text-transform: uppercase;
   letter-spacing: 1.1px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .registrationForm{
@@ -42,17 +64,26 @@ mat-form-field {
   flex-basis: 900px;
 }
 
-.appa-flex-header-centered {
+.flex-header-centered {
   margin-top: 40px;
   display: flex;
   justify-content: center;
 }
 
-.appa-header-width {
+.header-width {
   width: 1020px;
 }
 
-.appa-headers-small {
+.bioHeader{
+  font-family: "Times New Roman";
+  color: #EEEEEE;
+  font-size: 3.0em;
+  letter-spacing: .0178571429em;
+  margin-bottom: 12px;
+
+}
+
+.headers-small {
   font-size: 2.0em;
   padding-right: 10px;
   font-family: 'Open Sans', sans-serif;
@@ -61,7 +92,7 @@ mat-form-field {
   margin-bottom: 10px;
 }
 
-.appa-separator {
+.separator {
   border-top: 1px solid rgb(229 229 229);
 }
 

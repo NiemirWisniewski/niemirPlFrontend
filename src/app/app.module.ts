@@ -1,4 +1,4 @@
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
@@ -25,6 +25,11 @@ import {NgxFileDropModule} from "ngx-file-drop";
 import {LoggerModule, NgxLoggerLevel} from "ngx-logger";
 import {PostComponent} from "./pages/post/post.component";
 import {LogoutComponent} from "./pages/logout/logout.component";
+import {HttpRequestInterceptor} from './services/http-request-interceptor';
+import {AuthenticationService} from "./services/auth.service";
+import {BiographyComponent} from "./pages/biography/biography.component";
+import {DownloadService} from "./services/download.service";
+import FileSaver, {saveAs} from "file-saver";
 
 
 @NgModule({
@@ -38,7 +43,8 @@ import {LogoutComponent} from "./pages/logout/logout.component";
     AccountComponent,
     ContentComponent,
     PostComponent,
-    LogoutComponent
+    LogoutComponent,
+    BiographyComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +73,9 @@ import {LogoutComponent} from "./pages/logout/logout.component";
     LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG}),
   ],
   exports: [SpinnerComponent],
-  providers: [],
+  providers: [AuthenticationService, [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}
+  ], DownloadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
