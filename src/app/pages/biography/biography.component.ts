@@ -18,7 +18,7 @@ export class BiographyComponent {
         console.log(event);
         if(event.type == HttpEventType.Response)
         {
-          saveAs(new File([event.body], event.headers.get('File-Name'),
+          saveAs(new File([event.body], event.headers.get('file-name'),
             {type: `${event.headers.get('Content-Type')};charset=utf-8`}));
         }
       },

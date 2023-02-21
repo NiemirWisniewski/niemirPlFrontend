@@ -1,38 +1,41 @@
-<div>
-  <div class="flex-header-centered">
-    <div class="header-width">
-      <p class="bioHeader">
-        Witaj, nazywam się
-        <a href="https://pl.wikipedia.org/wiki/Niemir" style="text-decoration:none;
-color: #EEEEEE"> Niemir</a> Wiśniewski i pasjonuję się programowaniem.
-      </p>
-      <div class="separator"></div>
-    </div>
-  </div>
 
-  <div class="bioContent">
-    <div class="bioPhoto">
-      <img src="../../../assets/zdjecie_cv.jpg" style="width: 400px; border-radius: 1rem" />
-    </div>
-    <div class="bioText">
-      <div>Swoją pierwszą książke o programowaniu, "Java dla bystrzaków" kupiłem ponad rok temu,
-        w zamyśle znalezienia ciekawej i rozwijającej pracy.
-        Decydując się na język Java kierowałem się ilością ofert pracy znalezionych w internecie.
-        Myślałem wtedy naiwnie, że ten jeden język jest wszystkim czego potrzeba do pracy developera.
-        <div style="margin-top: 20px">Dziś mam lepsze wyborażenie na temat pracy programisty.
+<div class="flex-header-centered">
+  <div class="header-width">
+    <p class="bioHeader">
+      Witaj, nazywam się
+      <a href="https://pl.wikipedia.org/wiki/Niemir" style="text-decoration:none;
+color: #EEEEEE"> Niemir</a> Wiśniewski i pasjonuję się programowaniem.
+    </p>
+    <div class="separator"></div>
+  </div>
+</div>
+
+<div class="bioContent">
+  <div class="bioPhoto">
+    <img src="../../../assets/zdjecie_cv.jpg" style="width: 400px; border-radius: 1rem" />
+  </div>
+  <div class="bioText">
+    <div>Swoją pierwszą książke o programowaniu, "Java dla bystrzaków" kupiłem ponad rok temu,
+      w zamyśle znalezienia ciekawej i rozwijającej pracy.
+      Decydując się na język Java kierowałem się ilością ofert pracy znalezionych w internecie.
+      Myślałem wtedy naiwnie, że ten jeden język jest wszystkim czego potrzeba do pracy developera.
+      <div style="margin-top: 20px">Dziś mam lepsze wyborażenie na temat pracy programisty.
         W mojej edukacji skupiłem się głównie na platformie Springa i relacyjnych bazach danych.
         W pewnym momencie nauki postanowiłem stowrzyć stronę internetową co zaowocowało zapoznaniem się
         z frameworkiem Angular i językami HTML, CSS, TypeScript.</div>
-        <div style="margin-top: 20px">Strona na której się znajdujemy została napisana przeze mnie i oczywiście nie jest to produkt finalny.
+      <div style="margin-top: 20px">Strona na której się znajdujemy została napisana przeze mnie i oczywiście nie jest to produkt finalny.
         Pragnę zaimplementować w niej wiele funkcjonalności aby dobrze reprezentowała moje umiejętności
         i rozwijać się w kierunku fullstack developera.</div>
     </div>
   </div>
 </div>
 
-  <button mat-button color="accent" (click)="downloadBio()">
-    PDF</button>
+<div class="downloadCVButton">
+  <button style="font-size: 1em; color: #091D49FF;" mat-button (click)="downloadBio()">
+    Pobierz CV</button>
+</div>
 
-
-
+<div class="bioCV">
+<img style="width: 1400px; border-radius: 1rem"
+  src="../../../assets/Niemir_Wisniewski_CV.jpg">
 </div>

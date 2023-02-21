@@ -150,10 +150,8 @@ export class HomepageComponent implements OnInit{
   }
 
   fileOver(event) {
-    console.log('You can implement it if you need');
   }
 
   fileLeave(event) {
-    console.log('You can implement it if you need');
   }
 }

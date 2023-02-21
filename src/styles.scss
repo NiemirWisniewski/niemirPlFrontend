@@ -16,11 +16,23 @@ body {
   background-image: linear-gradient(90deg, #503804, #091d49);
 }
 
+.downloadCVButton{
+  margin-left: 300px;
+  background-color: #99c4de;
+  display: table;
+  border-radius: 1rem;
+  color: #857a00;
+}
+
 .bioContent{
   margin-top: 4em;
   display: flex;
   margin-left: 25em;
+}
 
+.bioCV{
+  margin-top: 20px;
+  margin-left: 300px;
 }
 
 .bioPhoto{
