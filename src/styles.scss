@@ -109,15 +109,31 @@ mat-form-field {
 }
 
 .submitButton{
-  display: flex;
-  justify-content: flex-end;
+  display: inline-block;
+  margin-left: 600px;
 }
 
-.appa-button-register {
+.resetPButton{
+  display: inline-block;
+  justify-content: flex-start;
+  margin-left: 100px;
+}
+
+.button-register {
   margin-top: 35px;
   width: 120px;
   height: 50px;
-  background-color: #deb92c;
+  border-radius: 0.75rem;
+  background-color: #9f7e0f !important;
+}
+
+
+
+.button-resetPass {
+  margin-top: 35px;
+  width: 120px;
+  height: 50px;
+  background-color: #3d50e5 !important;
   border-radius: 0.75rem;
 }
 
@@ -125,17 +141,17 @@ mat-form-field {
   display: flex;
 }
 
-.appa-vertical-box-25 {
+.vertical-box-25 {
   margin-bottom: 25px;
 }
 
-.appa-label {
+.label {
   color: gray;
   letter-spacing: 1.25px;
   margin-bottom: 15px;
 }
 
-.appa-flex-row-centered {
+.flex-row-centered {
   background-color: #04182a;
   margin-left: auto;
   margin-right: auto;
@@ -154,7 +170,7 @@ mat-form-field {
   width: 200px;
 }
 
-.appa-horizontal-box-25 {
+.horizontal-box-25 {
   width: 25px;
 }
 
@@ -166,7 +182,7 @@ mat-form-field {
   border: none!important;
 }
 
-.appa-error-text {
+.error-text {
   letter-spacing: 1.25px;
   margin-top: 5px;
   font-size: 14px;
@@ -177,7 +193,7 @@ mat-form-field {
   margin-left: 20px;
 }
 
-.appa-flex-row-right {
+.flex-row-right {
   margin-top: 20px;
   display: flex;
   justify-content: left;
@@ -201,6 +217,7 @@ mat-form-field {
   margin-left: auto;
   margin-right: auto;
   border-radius: 0.25rem;
+  margin-top: 20px
 }
 
 .ql-container {
@@ -216,6 +233,17 @@ mat-form-field {
 
 .postButton{
   color: #99c4de;
+}
+
+.help-block-alternative-balanced {
+  margin-bottom: 0px;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 1em !important;
+  font-weight: 400 !important;
+  margin-top: 5px;
+  font-size: 13px !important;
+  color: #737373 !important;
+  letter-spacing: 1px;
 }
 
 

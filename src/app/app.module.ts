@@ -30,6 +30,10 @@ import {AuthenticationService} from "./services/auth.service";
 import {BiographyComponent} from "./pages/biography/biography.component";
 import {DownloadService} from "./services/download.service";
 import FileSaver, {saveAs} from "file-saver";
+import {PasswordResetComponent} from "./pages/login/password-reset/password-reset.component";
+import {NewPasswordComponent} from "./pages/login/new-password/new-password.component";
+import {TokenExpiredComponent} from "./pages/login/token-expired/token-expired.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 
 @NgModule({
@@ -44,7 +48,11 @@ import FileSaver, {saveAs} from "file-saver";
     ContentComponent,
     PostComponent,
     LogoutComponent,
-    BiographyComponent
+    BiographyComponent,
+    PasswordResetComponent,
+    NewPasswordComponent,
+    TokenExpiredComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

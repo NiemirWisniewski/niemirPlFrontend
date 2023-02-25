@@ -84,7 +84,7 @@ export class HomepageComponent implements OnInit{
             positionClass: 'toast-top-center'
           });
           this.formSubmitted = false;
-
+          this.ngOnInit();
           //this._loadItems();
         },
         error => {
@@ -153,5 +153,9 @@ export class HomepageComponent implements OnInit{
   }
 
   fileLeave(event) {
+  }
+
+  isLogged() : boolean{
+    return !!sessionStorage.getItem('username');
   }
 }

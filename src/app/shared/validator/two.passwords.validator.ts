@@ -6,8 +6,6 @@ export class TwoPasswordsValidator implements ErrorStateMatcher {
     const isSubmitted = form && form.submitted;
     const password = form?.form.controls.password;
 
-    console.log('SUBMITTED: ' + isSubmitted);
-
     const invalid = (!password?.hasError('minlength')
         && !password?.hasError('maxlength')
         && !password?.hasError('required')) && password?.value !== control?.value
@@ -18,8 +16,6 @@ export class TwoPasswordsValidator implements ErrorStateMatcher {
     } else {
       control?.setErrors(null);
     }
-
-    console.log('INVALID: ' + invalid);
 
     return !!(invalid);
   }

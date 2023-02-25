@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  userLogged() : boolean {
+    return !!sessionStorage.getItem('username');
+  }
+
+  userLoggout() : boolean {
+    return !sessionStorage.getItem('username');
+  }
 }

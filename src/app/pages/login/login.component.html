@@ -36,9 +36,17 @@
     </div>
 
     <div class="submitButton">
-      <button class="appa-button-register"
+      <button class="button-register"
               mat-raised-button
-              type="submit">Zaloguj</button>
+              type="submit">Zaloguj
+      </button>
     </div>
+    <div class="submitButton">
+      <button class="button-resetPass"
+              mat-raised-button
+              (click)="onPasswordReset()">Zresetuj Hasło
+      </button>
+    </div>
+
   </form>
 </div>
