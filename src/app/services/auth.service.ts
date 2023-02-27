@@ -55,12 +55,8 @@ export class AuthenticationService {
     return this.httpClient.post<any>(`${HttpClientHelper.authURL}/logout`, null).pipe(tap(console.log));
   }
 
-  resetPassword(username: string) : Observable<void> {
-    const body = {
-      'email': username
-    };
-
-    return this.httpClient.post<any>(`${HttpClientHelper.authURL}/auth/password/token`, body).pipe(tap(console.log));
+  resetPassword(email: string) : Observable<void> {
+    return this.httpClient.post<any>(`${HttpClientHelper.baseURL}/users/password/reset`, email).pipe(tap(console.log));
   }
 
   newPassword(newPassword: string, newRepeatedPassword: string, token: string) : Observable<void> {
@@ -70,6 +66,6 @@ export class AuthenticationService {
       'token': token
     };
 
-    return this.httpClient.post<any>(`${HttpClientHelper.authURL}/auth/password/new`, body).pipe(tap(console.log));
+    return this.httpClient.post<any>(`${HttpClientHelper.authURL}/api/users/password/new`, body).pipe(tap(console.log));
   }
 }

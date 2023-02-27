@@ -1,4 +1,4 @@
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
@@ -15,16 +15,24 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MaterialModule} from "./material.module";
 import {CommonModule} from "@angular/common";
 import {HomepageComponent} from "./pages/homepage/homepage.component";
-import {AccountComponent} from "./pages/account/account.component";
 import {QuillModule} from "ngx-quill";
 import {ContentComponent} from "./pages/homepage/content/content.component";
 import {NgxFileDropModule} from "ngx-file-drop";
 import {LoggerModule, NgxLoggerLevel} from "ngx-logger";
 import {PostComponent} from "./pages/post/post.component";
 import {LogoutComponent} from "./pages/logout/logout.component";
+import {HttpRequestInterceptor} from './services/http-request-interceptor';
+import {AuthenticationService} from "./services/auth.service";
+import {BiographyComponent} from "./pages/biography/biography.component";
+import {DownloadService} from "./services/download.service";
+import {PasswordResetComponent} from "./pages/login/password-reset/password-reset.component";
+import {NewPasswordComponent} from "./pages/login/new-password/new-password.component";
+import {TokenExpiredComponent} from "./pages/login/token-expired/token-expired.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -35,10 +43,14 @@ import {LogoutComponent} from "./pages/logout/logout.component";
     LoginComponent,
     SpinnerComponent,
     HomepageComponent,
-    AccountComponent,
     ContentComponent,
     PostComponent,
-    LogoutComponent
+    LogoutComponent,
+    BiographyComponent,
+    PasswordResetComponent,
+    NewPasswordComponent,
+    TokenExpiredComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -56,8 +68,7 @@ import {LogoutComponent} from "./pages/logout/logout.component";
       autoDismiss: true,
       newestOnTop: true
     }),
-    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
-    MaterialModule,
+    NgxSpinnerModule.forRoot({type: 'ball-scale-multiple'}),
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
@@ -65,9 +76,13 @@ import {LogoutComponent} from "./pages/logout/logout.component";
     QuillModule.forRoot(),
     NgxFileDropModule,
     LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG}),
+    MatToolbarModule,
+    MatButtonModule,
   ],
   exports: [SpinnerComponent],
-  providers: [],
+  providers: [AuthenticationService, [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}
+  ], DownloadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

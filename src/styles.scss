@@ -5,7 +5,7 @@
 body {
   margin: 0;
   background: #020c15;
-  color: #d6ffff;
+  color: #99c4de;
 }
 
 .nawigationBar {
@@ -16,9 +16,43 @@ body {
   background-image: linear-gradient(90deg, #503804, #091d49);
 }
 
+.downloadCVButton{
+  margin-left: 300px;
+  background-color: #99c4de;
+  display: table;
+  border-radius: 1rem;
+  color: #857a00;
+}
+
+.bioContent{
+  margin-top: 4em;
+  display: flex;
+  margin-left: 25em;
+}
+
+.bioCV{
+  margin-top: 20px;
+  margin-left: 300px;
+}
+
+.bioPhoto{
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.bioText{
+  font-family: Helvetica, Arial, sans-serif;
+  margin-left: 20px;
+  width: 700px;
+  font-size: 1.5em;
+  color: #EEEEEE;
+}
+
 .header-label {
   text-transform: uppercase;
   letter-spacing: 1.1px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .registrationForm{
@@ -42,17 +76,26 @@ mat-form-field {
   flex-basis: 900px;
 }
 
-.appa-flex-header-centered {
+.flex-header-centered {
   margin-top: 40px;
   display: flex;
   justify-content: center;
 }
 
-.appa-header-width {
+.header-width {
   width: 1020px;
 }
 
-.appa-headers-small {
+.bioHeader{
+  font-family: "Times New Roman";
+  color: #EEEEEE;
+  font-size: 3.0em;
+  letter-spacing: .0178571429em;
+  margin-bottom: 12px;
+
+}
+
+.headers-small {
   font-size: 2.0em;
   padding-right: 10px;
   font-family: 'Open Sans', sans-serif;
@@ -61,20 +104,36 @@ mat-form-field {
   margin-bottom: 10px;
 }
 
-.appa-separator {
+.separator {
   border-top: 1px solid rgb(229 229 229);
 }
 
 .submitButton{
-  display: flex;
-  justify-content: flex-end;
+  display: inline-block;
+  margin-left: 600px;
 }
 
-.appa-button-register {
+.resetPButton{
+  display: inline-block;
+  justify-content: flex-start;
+  margin-left: 100px;
+}
+
+.button-register {
   margin-top: 35px;
   width: 120px;
   height: 50px;
-  background-color: #deb92c;
+  border-radius: 0.75rem;
+  background-color: #9f7e0f !important;
+}
+
+
+
+.button-resetPass {
+  margin-top: 35px;
+  width: 120px;
+  height: 50px;
+  background-color: #3d50e5 !important;
   border-radius: 0.75rem;
 }
 
@@ -82,17 +141,17 @@ mat-form-field {
   display: flex;
 }
 
-.appa-vertical-box-25 {
+.vertical-box-25 {
   margin-bottom: 25px;
 }
 
-.appa-label {
+.label {
   color: gray;
   letter-spacing: 1.25px;
   margin-bottom: 15px;
 }
 
-.appa-flex-row-centered {
+.flex-row-centered {
   background-color: #04182a;
   margin-left: auto;
   margin-right: auto;
@@ -111,7 +170,7 @@ mat-form-field {
   width: 200px;
 }
 
-.appa-horizontal-box-25 {
+.horizontal-box-25 {
   width: 25px;
 }
 
@@ -123,7 +182,7 @@ mat-form-field {
   border: none!important;
 }
 
-.appa-error-text {
+.error-text {
   letter-spacing: 1.25px;
   margin-top: 5px;
   font-size: 14px;
@@ -134,7 +193,7 @@ mat-form-field {
   margin-left: 20px;
 }
 
-.appa-flex-row-right {
+.flex-row-right {
   margin-top: 20px;
   display: flex;
   justify-content: left;
@@ -158,6 +217,7 @@ mat-form-field {
   margin-left: auto;
   margin-right: auto;
   border-radius: 0.25rem;
+  margin-top: 20px
 }
 
 .ql-container {
@@ -173,6 +233,17 @@ mat-form-field {
 
 .postButton{
   color: #99c4de;
+}
+
+.help-block-alternative-balanced {
+  margin-bottom: 0px;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 1em !important;
+  font-weight: 400 !important;
+  margin-top: 5px;
+  font-size: 13px !important;
+  color: #737373 !important;
+  letter-spacing: 1px;
 }
 
 

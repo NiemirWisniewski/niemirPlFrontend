@@ -1,7 +1,7 @@
 <div class="appa-flex-spinner-centered">
   <app-spinner></app-spinner>
 </div>
-<div class="appa-flex-row-centered">
+<div *ngIf="isLogged()" class="flex-row-centered">
   <form (ngSubmit)="createPost()" [formGroup]="postForm">
     <div class="create-form">
       <app-content [content]="contentControl" (onContentChange)="onContentChangeEvent($event)"></app-content>
@@ -17,19 +17,18 @@
         <img [src]="imageUrl" class="image-container">
         <span
           *ngIf="(imageSelected || formSubmitted) &&
-          imageControl.hasError('imageInvalid')" class="mat-error appa-error-text">
+          imageControl.hasError('imageInvalid')" class="mat-error error-text">
           Zdjęcie (JPG lub PNG) nie może być większe niż 3MB</span>
       </div>
     </div>
     <!-- SUBMIT -->
-    <div class="appa-flex-row-right">
+    <div class="flex-row-right">
       <button  mat-raised-button class="postButton"
               type="submit"><span>Stwórz</span>
       </button>
     </div>
 </form>
 </div>
-
   <ng-container *ngFor="let singlePost of posts;">
     <app-post [post]="singlePost">
     </app-post>

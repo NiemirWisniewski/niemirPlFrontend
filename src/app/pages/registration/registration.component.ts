@@ -8,6 +8,7 @@ import {SharedValidator} from "../../shared/validator/shared.validator";
 import {Router} from "@angular/router";
 import {ToastrService} from 'ngx-toastr';
 import {UserService} from "../../services/user.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 
 @Component({
@@ -64,12 +65,12 @@ export class RegistrationComponent {
       this.userService.createUser(user).pipe(finalize(() => {
         /*this.spinner.hide();*/
       })).subscribe(data => {
-          this.toastr.success("Rejestracja powiodła się.", undefined,
+          this.toastr.success("Potwierdź rejestrację na mailu", undefined,
             {positionClass: "toast-top-center"});
           this.router.navigate(['login']);
         },
         error => {
-          this.toastr.error('Rejestracja nie powiodła się.', undefined, {
+          this.toastr.error(error, undefined, {
             positionClass: 'toast-top-center'
           });
         }
