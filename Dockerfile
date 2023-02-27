@@ -6,16 +6,13 @@ FROM node:18-alpine as build
 WORKDIR /usr/local/app
 
 #add source code to app
-COPY ./ usr/local/app/
-
-# Copy package.json and package-lock.json
-COPY package*.json ./
+COPY . /usr/local/app
 
 #install dependencies
 RUN npm install
 
 #generate build of the aplication
-RUN npm run build --omit=dev
+RUN npm run build
 
 #Stage 2: serve app with nginx server
 
@@ -26,4 +23,4 @@ FROM nginx
 COPY --from=build /usr/local/app/dist/niemir /usr/share/nginx/html
 
 #expose port
-EXPOSE 4200
+EXPOSE 80

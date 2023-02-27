@@ -1,0 +1,21 @@
+version: "3"
+services:
+  frontend:
+    build: .
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+  backend:
+    build: ../niemirPlBackend-master
+    ports:
+      - "7070:7070"
+    depends_on:
+      - database
+  database:
+    container_name: "postgres"
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: test
