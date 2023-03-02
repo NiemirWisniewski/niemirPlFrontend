@@ -12,10 +12,10 @@ import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {TokenExpiredComponent} from "./pages/login/token-expired/token-expired.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/homepage', pathMatch: 'full'},
+  {path: '', redirectTo: '/bio', pathMatch: 'full'},
   {path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'homepage', component: HomepageComponent},
+  {path: 'homepage', redirectTo: '/bio'},
   {path: 'post', component: PostComponent},
   {path: 'logout', component:LogoutComponent},
   {path: 'bio', component: BiographyComponent},
