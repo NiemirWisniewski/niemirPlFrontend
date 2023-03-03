@@ -8,7 +8,7 @@ import {LogoutComponent} from "./pages/logout/logout.component";
 import {BiographyComponent} from "./pages/biography/biography.component";
 import {PasswordResetComponent} from "./pages/login/password-reset/password-reset.component";
 import {NewPasswordComponent} from "./pages/login/new-password/new-password.component";
-import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
 import {TokenExpiredComponent} from "./pages/login/token-expired/token-expired.component";
 
 const routes: Routes = [
