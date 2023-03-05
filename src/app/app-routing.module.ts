@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/bio', pathMatch: 'full'},
   {path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'homepage', redirectTo: '/bio'},
+  {path: 'homepage', component: HomepageComponent},
   {path: 'post', component: PostComponent},
   {path: 'logout', component:LogoutComponent},
   {path: 'bio', component: BiographyComponent},

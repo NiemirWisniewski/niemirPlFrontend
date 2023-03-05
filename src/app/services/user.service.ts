@@ -13,20 +13,20 @@ export class UserService {
   }
 
   getCurrentUser(): Observable<User> {
-    return this.httpClient.get<User>(`${HttpClientHelper.baseURL}/users/current`);
+    return this.httpClient.get<User>(`${HttpClientHelper.apiURL}/users/current`);
   }
 
   createUser(user: User): Observable<any> {
-    return this.httpClient.post<any>(`${HttpClientHelper.baseURL}/users/`, user).pipe(catchError(this.handleError));
+    return this.httpClient.post<any>(`${HttpClientHelper.apiURL}/users/`, user).pipe(catchError(this.handleError));
   }
 
   updateUser(user: User): Observable<void> {
-    return this.httpClient.post<void>(`${HttpClientHelper.baseURL}/users/current`, user);
+    return this.httpClient.post<void>(`${HttpClientHelper.apiURL}/users/current`, user);
   }
 
   logOut(): Observable<any> {
     sessionStorage.removeItem('username');
-    return this.httpClient.post<any>(`${HttpClientHelper.authURL}/logout`, null).pipe(tap(console.log));
+    return this.httpClient.post<any>(`${HttpClientHelper.baseURL}/logout`, null).pipe(tap(console.log));
   }
 
   private handleError(error: HttpErrorResponse) {

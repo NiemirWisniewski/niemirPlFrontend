@@ -1,12 +1,14 @@
 version: "3"
 services:
   frontend:
+    container_name: "frontendcont"
     build: .
     ports:
       - "20474:80"
     depends_on:
       - backend
   backend:
+    container_name: "backendcont"
     build: ../niemirPlBackend
     ports:
       - "30474:7070"
@@ -19,3 +21,4 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: test
+
