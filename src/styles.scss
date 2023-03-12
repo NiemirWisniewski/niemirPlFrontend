@@ -4,55 +4,87 @@
 
 body {
   margin: 0;
+  background-color: #0672ce;
   background: #020c15;
-  color: #99c4de;
 }
 
-.nawigationBar {
-  justify-content: center;
-  display: flex;
-  padding: 16px;
-  color: #EEEEEE;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navigationColor{
   background-image: linear-gradient(90deg, #503804, #091d49);
 }
 
-.downloadCVButton{
-  margin-left: 300px;
-  background-color: #99c4de;
-  display: table;
-  border-radius: 1rem;
-  color: #857a00;
+.navigationBar {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2em;
+  max-width: 1200px;
 }
 
-.bioContent{
-  margin-top: 4em;
-  display: flex;
-  margin-left: 25em;
+.navigationLink {
+  color: #EEEEEE;
+  text-transform: uppercase;
+  font: 500 1rem Roboto,sans-serif;
+  letter-spacing: .125em;
+  padding: 1em 0;
+}
+
+.container{
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bioHeader{
+  font-family: "Times New Roman", serif;
+  color: #EEEEEE;
+  font-size: 2.5rem;
+  letter-spacing: .0178571429em;
+}
+
+.bioArticle{
+  margin-top: 1.5rem;
+}
+
+.bioPhoto {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  max-width: 30%;
+  border-radius: 1rem;
+  float: left;
+}
+
+.bioParagraph{
+  font-family: Helvetica, Arial, sans-serif;
+  width: 95%;
+  max-width: 1300px;
+  font-size: 1.5em;
+  color: #EEEEEE;
+
+}
+
+.downloadCVButton{
+  display: block;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  background-color: #0672ce;
+  background-color: #98c2dc;
+  color: #091D49FF;
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  clear: left;
 }
 
 .bioCV{
-  margin-top: 20px;
-  margin-left: 300px;
-}
-
-.bioPhoto{
-  margin-right: 10px;
-  margin-bottom: 20px;
-}
-
-.bioText{
-  font-family: Helvetica, Arial, sans-serif;
-  margin-left: 20px;
-  width: 700px;
-  font-size: 1.5em;
-  color: #EEEEEE;
-}
-
-.header-label {
-  text-transform: uppercase;
-  letter-spacing: 1.1px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-top: 1rem;
+  max-width: 1400px;
+  width: 100%;
+  border-radius: 1rem;
 }
 
 .registrationForm{
@@ -77,22 +109,14 @@ mat-form-field {
 }
 
 .flex-header-centered {
-  margin-top: 40px;
+  margin-top: 20px!important;
   display: flex;
   justify-content: center;
+  max-width: 1020px;
 }
 
 .header-width {
   width: 1020px;
-}
-
-.bioHeader{
-  font-family: "Times New Roman";
-  color: #EEEEEE;
-  font-size: 3.0em;
-  letter-spacing: .0178571429em;
-  margin-bottom: 12px;
-
 }
 
 .headers-small {
@@ -153,13 +177,10 @@ mat-form-field {
 
 .flex-row-centered {
   background-color: #04182a;
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 0.25rem;
   padding: 1.25rem;
   width: 900px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin: 20px auto;
 }
 
 .imageCreatorField {
@@ -212,12 +233,9 @@ mat-form-field {
   padding: 1.25rem;
   background-color: #503804;
   width: 900px;
-  margin-bottom: 20px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 0.25rem;
-  margin-top: 20px
+  margin: 20px auto;
 }
 
 .ql-container {
@@ -236,9 +254,8 @@ mat-form-field {
 }
 
 .help-block-alternative-balanced {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   font-family: 'Open Sans', sans-serif !important;
-  font-size: 1em !important;
   font-weight: 400 !important;
   margin-top: 5px;
   font-size: 13px !important;
