@@ -13,6 +13,11 @@ a {
   color: inherit;
 }
 
+h1{
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 .navigationColor{
   background-image: linear-gradient(90deg, #503804, #091d49);
 }
@@ -21,7 +26,7 @@ a {
   margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   max-width: 1200px;
 }
 
@@ -30,7 +35,20 @@ a {
   text-transform: uppercase;
   font: 500 1rem Roboto,sans-serif;
   letter-spacing: .125em;
-  padding: 1em 0;
+  padding: .75em 0;
+}
+
+@media (max-width: 500px) {
+  html{
+    font-size: 11px;
+  }
+  .navigationBar {
+    flex-wrap: wrap;
+
+  }
+  .navigationLink{
+    padding: .75em 0.5em;
+  }
 }
 
 .container{
@@ -39,20 +57,20 @@ a {
   margin: 0 auto;
 }
 
-.bioHeader{
+.bioH1{
   font-family: "Times New Roman", serif;
   color: #EEEEEE;
-  font-size: 2.5rem;
+  font-size: 1rem;
   letter-spacing: .0178571429em;
 }
 
 .bioArticle{
-  margin-top: 1.5rem;
+  margin-top: 1.5em;
 }
 
 .bioPhoto {
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  margin-right: 1em;
+  margin-bottom: 1em;
   max-width: 30%;
   border-radius: 1rem;
   float: left;
@@ -62,9 +80,8 @@ a {
   font-family: Helvetica, Arial, sans-serif;
   width: 95%;
   max-width: 1300px;
-  font-size: 1.5em;
+  font-size: 1.3rem;
   color: #EEEEEE;
-
 }
 
 .downloadCVButton{
