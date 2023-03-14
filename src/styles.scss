@@ -212,7 +212,7 @@ mat-form-field {
 }
 
 mat-label{
-  font-size: 1rem;
+
 }
 
 mat-error{
@@ -236,60 +236,17 @@ mat-error{
 
 }
 
-.form {
-  margin-top: 20px;
-  flex-basis: 900px;
-}
-
-.resetPButton{
-  display: inline-block;
-  justify-content: flex-start;
-  margin-left: 100px;
-}
-
-.button-register {
-  margin-top: 35px;
-  width: 120px;
-  height: 50px;
-  border-radius: 0.75rem;
-  background-color: #9f7e0f !important;
-}
-
-.button-resetPass {
-  margin-top: 35px;
-  width: 120px;
-  height: 50px;
-  background-color: #3d50e5 !important;
-  border-radius: 0.75rem;
-}
-
-.vertical-box-25 {
-  margin-bottom: 25px;
-}
-
-.label {
-  color: gray;
-  letter-spacing: 1.25px;
-  margin-bottom: 15px;
-}
-
-.horizontal-box-25 {
-  width: 25px;
-}
-
 .ngx-file-drop__drop-zone{
   border: none!important;
 }
 
-.help-block-alternative-balanced {
-  margin-bottom: 0;
-  font-family: 'Open Sans', sans-serif !important;
-  font-weight: 400 !important;
-  margin-top: 5px;
-  font-size: 13px !important;
-  color: #737373 !important;
-  letter-spacing: 1px;
+.tokenExpireInfo{
+  background-color: #0672ce;
+  margin: 0 auto;
+  border: rgba(14, 32, 72, 0.5) solid 1px;
+  border-radius: .5rem;
+  padding: .5em;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: .2em;
 }
-
-
-
