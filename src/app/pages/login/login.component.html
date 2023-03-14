@@ -1,51 +1,38 @@
-<div class="flex-header-centered">
-  <div class="header-width">
-    <h1 class="headers-small">
-      Logowanie
-    </h1>
-    <div class="separator"></div>
-  </div>
-</div>
+<div class="container">
+  <h1 class="loginH1">
+    Logowanie
+  </h1>
 
+  <form class="registrationForm" (ngSubmit)="login()" [formGroup]="usernameForm">
 
-<div class="registrationForm">
+    <mat-form-field >
+      <mat-label>Nazwa użytkownika:</mat-label>
+      <input type="text" matInput [formControl]="username"
+             [errorStateMatcher]="sharedValidator"
+             placeholder="">
+      <mat-error *ngIf="username.hasError('required')">
+        Nazwa użytkownika jest wymagana.</mat-error>
+    </mat-form-field>
 
-  <form class="form" (ngSubmit)="login()" [formGroup]="usernameForm">
+    <mat-form-field >
+      <mat-label>Hasło:</mat-label>
+      <input type="password"
+             matInput [formControl]="password" [errorStateMatcher]="sharedValidator"
+             placeholder="">
+      <mat-error
+        *ngIf="password.hasError('required')">
+        Hasło jest wymagane</mat-error>
+    </mat-form-field>
 
-    <div class="registrationField">
-      <mat-form-field >
-        <mat-label>Nazwa użytkownika:</mat-label>
-        <input type="text" matInput [formControl]="username"
-               [errorStateMatcher]="sharedValidator"
-               placeholder="">
-        <mat-error *ngIf="username.hasError('required')">
-          Nazwa użytkownika jest wymagana.</mat-error>
-      </mat-form-field>
-    </div>
+    <div style="display: flex;
+    flex-direction: row-reverse">
+    <button class="submitButton"
+            type="submit">Zaloguj
+    </button>
 
-    <div class="registrationField">
-      <mat-form-field >
-        <mat-label>Hasło:</mat-label>
-        <input class="inputRegForm" type="password"
-               matInput [formControl]="password" [errorStateMatcher]="sharedValidator"
-               placeholder="">
-        <mat-error class="inputErrorRegFrom"
-                   *ngIf="password.hasError('required')">
-          Hasło jest wymagane</mat-error>
-      </mat-form-field>
-    </div>
-
-    <div class="submitButton">
-      <button class="button-register"
-              mat-raised-button
-              type="submit">Zaloguj
-      </button>
-    </div>
-    <div class="submitButton">
-      <button class="button-resetPass"
-              mat-raised-button
-              (click)="onPasswordReset()">Zresetuj Hasło
-      </button>
+    <button class="submitButton" style="align-self: flex-start;"
+            (click)="onPasswordReset()">Zresetuj Hasło
+    </button>
     </div>
 
   </form>
