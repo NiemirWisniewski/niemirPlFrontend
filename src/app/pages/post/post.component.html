@@ -1,6 +1,10 @@
 <div class="postStyling">
-  <p>Autor: {{post.author}}</p>
-  <p [innerHTML]="post.content"></p>
+  <p style="background-color: #e5cf3d; padding: .5em .5em;
+  border-radius: .5em; display: inline">
+    <strong><em>{{post.author}}:</em></strong></p>
+  <p [innerHTML]="post.content"
+     style="background-color: #55bfe0; padding: .5em .5em;
+  border-radius: .5em; display: inline-block; margin-left: .5em;"></p>
   <img [src]="post.image" class="imageStyling"/>
 </div>
 

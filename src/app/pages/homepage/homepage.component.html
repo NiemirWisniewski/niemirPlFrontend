@@ -1,36 +1,38 @@
-<div class="appa-flex-spinner-centered">
-  <app-spinner></app-spinner>
-</div>
-<div *ngIf="isLogged()" class="flex-row-centered">
-  <form (ngSubmit)="createPost()" [formGroup]="postForm">
-    <div class="create-form">
-      <app-content [content]="contentControl" (onContentChange)="onContentChangeEvent($event)"></app-content>
 
-      <div class="imageCreatorField">
-        <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
-                       (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" accept="image/*"
-                       multiple="false" [formControl]="imageControl" ngDefaultControl >
-          <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-            <a mat-flat-button color="primary" (click)="openFileSelector()">Prześlij zdjęcie</a>
-          </ng-template>
-        </ngx-file-drop>
-        <img [src]="imageUrl" class="image-container">
-        <span
-          *ngIf="(imageSelected || formSubmitted) &&
+
+  <form *ngIf="isLogged()" class="quillContainer" (ngSubmit)="createPost()" [formGroup]="postForm">
+
+    <app-content [content]="contentControl" (onContentChange)="onContentChangeEvent($event)"></app-content>
+
+    <button class="downloadCVButton" style="display: inline;"
+      type="submit">Wyślij
+    </button>
+
+    <div style="display: flex">
+
+    <ngx-file-drop style="margin-left: 70%; display: inline-block"
+      dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                   accept="image/*" multiple="false" [formControl]="imageControl" ngDefaultControl >
+      <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+        <button class="downloadCVButton" style="background-color: #9f7c2b" (click)="openFileSelector()">Prześlij zdjęcie</button>
+      </ng-template>
+    </ngx-file-drop>
+
+
+    <img [src]="imageUrl" class="image-container">
+
+    <span
+      *ngIf="(imageSelected || formSubmitted) &&
           imageControl.hasError('imageInvalid')" class="mat-error error-text">
           Zdjęcie (JPG lub PNG) nie może być większe niż 3MB</span>
-      </div>
+
     </div>
     <!-- SUBMIT -->
-    <div class="flex-row-right">
-      <button  mat-raised-button class="postButton"
-              type="submit"><span>Stwórz</span>
-      </button>
-    </div>
-</form>
-</div>
-  <ng-container *ngFor="let singlePost of posts;">
-    <app-post [post]="singlePost">
-    </app-post>
-  </ng-container>
+
+  </form>
+
+<ng-container *ngFor="let singlePost of posts;">
+  <app-post [post]="singlePost">
+  </app-post>
+</ng-container>
 

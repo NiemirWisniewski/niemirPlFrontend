@@ -1,4 +1,5 @@
-<quill-editor [formControl]="$any(content)" placeholder="Treść postu..." [modules]="quillConfig"
+<quill-editor class="quillEditor"
+  [formControl]="$any(content)" placeholder="Treść postu..." [modules]="quillConfig"
               (onSelectionChanged)="onSelectionChanged($event)" (onContentChanged)="onContentChanged($event)">
 </quill-editor>
 <span
