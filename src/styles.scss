@@ -176,54 +176,66 @@ h1{
   margin: .5em 0;
 }
 
+/*registration*/
+
+.loginH1 {
+  font-size: 2.0em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  line-height: 0.8em;
+  display: inline-block;
+  border-bottom: solid white 2px;
+  padding: .25em .25em;
+  margin-left: 20%;
+  margin-top: .1em;
+  margin-bottom: .5em;
+}
+
 .registrationForm{
   display: flex;
   justify-content: center;
-  height: 130px;
-  flex-flow: wrap;
-  padding: 32px 32px 8px 32px;
+  align-content: center;
+  max-width: 500px;
+  width: 50%;
+  justify-self: center;
+  flex-direction: column;
+  border: 1px white solid;
+  border-radius: .25em;
+  margin: 0 auto;
+  padding: 1em 0;
 }
 
 mat-form-field {
   width: 400px;
+  margin: 0 auto;
 }
 
-.registrationField {
-  text-align: center;
+mat-label{
+}
+
+mat-error{
+  font-weight: 500;
+  background-color: #f3f3f3;
+  border-radius: .5em;
+}
+
+.submitButton{
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  background-color: #0672ce;
+  background-color: #ceb017;
+  color: #091D49FF;
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  width: fit-content;
+  align-self: flex-end;
+  margin-right: 1em;
 }
 
 .form {
   margin-top: 20px;
   flex-basis: 900px;
-}
-
-.flex-header-centered {
-  margin-top: 20px!important;
-  display: flex;
-  justify-content: center;
-  max-width: 1020px;
-}
-
-.header-width {
-  width: 1020px;
-}
-
-.headers-small {
-  font-size: 2.0em;
-  padding-right: 10px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
-  line-height: 0.8em;
-  margin-bottom: 10px;
-}
-
-.separator {
-  border-top: 1px solid rgb(229 229 229);
-}
-
-.submitButton{
-  display: inline-block;
-  margin-left: 600px;
 }
 
 .resetPButton{
@@ -262,17 +274,8 @@ mat-form-field {
   width: 25px;
 }
 
-.mat-error {
-  font-size: 1rem;
-}
-
 .ngx-file-drop__drop-zone{
   border: none!important;
-}
-
-.error-text {
-  margin: 1em 1em;
-  font-size: 1rem;
 }
 
 .help-block-alternative-balanced {

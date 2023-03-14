@@ -3,6 +3,6 @@
               (onSelectionChanged)="onSelectionChanged($event)" (onContentChanged)="onContentChanged($event)">
 </quill-editor>
 <span
-  *ngIf="content.hasError('maxlength')" class="mat-error error-text">
+  *ngIf="content.hasError('maxlength')">
         Maximum 240 characters is allowed
 </span>
