@@ -111,10 +111,14 @@ h1{
 /*homepage*/
 
 .quillContainer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   background-color: #004980;
   max-width: 950px;
   margin: 0 auto;
-  width: 95%;
+  width: 99%;
+
 }
 
 .ngx-file-drop__content{
@@ -135,7 +139,7 @@ h1{
 
 .quillEditor{
   margin: 1% 1%;
-  width: 70%;
+  width: 98%;
 }
 
 .ql-container {

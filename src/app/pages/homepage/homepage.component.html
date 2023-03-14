@@ -2,15 +2,18 @@
 
   <form *ngIf="isLogged()" class="quillContainer" (ngSubmit)="createPost()" [formGroup]="postForm">
 
+    <div style="width: 80%">
     <app-content [content]="contentControl" (onContentChange)="onContentChangeEvent($event)"></app-content>
+    </div>
 
+    <div>
     <button class="downloadCVButton" style="display: inline;"
       type="submit">Wyślij
     </button>
+    </div>
 
-    <div style="display: flex">
-
-    <ngx-file-drop style="margin-left: 70%; display: inline-block"
+    <div >
+    <ngx-file-drop style="display: inline-block"
       dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
                    accept="image/*" multiple="false" [formControl]="imageControl" ngDefaultControl >
       <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
