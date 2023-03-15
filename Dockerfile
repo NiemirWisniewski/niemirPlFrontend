@@ -12,7 +12,7 @@ COPY . /usr/local/app
 RUN npm install
 
 #generate build of the aplication
-RUN npm run build
+#RUN npm run build
 
 #Stage 2: serve app with nginx server
 
@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx
 
 #copy build output to replace default nginx content
-COPY --from=build /usr/local/app/dist/niemir /usr/share/nginx/html
+COPY --from=build usr/local/app/dist/niemir /usr/share/nginx/html
 
 #expose port
 EXPOSE 80
