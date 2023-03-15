@@ -1,28 +1,16 @@
-<div class="flex-header-centered">
-  <div class="header-width">
-    <p class="bioHeader">
-      Status rejestracji
-    </p>
-    <div class="separator"></div>
-  </div>
-</div>
+<div class="container">
+  <h1 class="loginH1" style="margin-left: 0">
+    Status rejestracji
+  </h1>
 
-<div class="bioContent">
-  <div class="bioPhoto">
-  </div>
-  <div class="bioText">
-    <div>
-      Twój token jest nieważny lub wygasły.
-      <br/>
-      Proszę powtórz resetowanie hasła. <br/>
-      Otrzymasz nową wiadomość z nowym tokenem.
-    </div>
-    <div class="submitButton">
-      <button (click)="onPasswordReset()"
-        class="button-register"
-              mat-raised-button
-              type="submit">Zrestartuj hasło</button>
-    </div>
+  <div class="tokenExpireInfo">
+    Twój token jest nieważny lub wygasły.
+    <br/>
+    Proszę powtórz resetowanie hasła. <br/>
+    Otrzymasz nową wiadomość z nowym tokenem.
   </div>
 
-</div>
+    <button class="submitButton" style="margin-left: 60%" (click)="onPasswordReset()"
+            type="submit">Zrestartuj hasło</button>
+  </div>
+

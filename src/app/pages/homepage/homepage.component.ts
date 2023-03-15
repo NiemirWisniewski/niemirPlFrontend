@@ -5,7 +5,7 @@ import {Post} from "../../domain/post";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgxFileDropEntry} from "ngx-file-drop";
 import {SpinnerComponent} from "../../shared/spinner/spinner.component";
-import {finalize} from "rxjs";
+import {finalize, Observable} from "rxjs";
 import {NGXLogger} from "ngx-logger";
 
 @Component({
@@ -62,7 +62,6 @@ export class HomepageComponent implements OnInit{
     if (this.postForm.invalid) {
       return;
     } else {
-      this.spinner.show();
       const post = new Post();
       post.content = this.contentControl.value;
       post.author = sessionStorage.getItem('username');
@@ -119,7 +118,6 @@ export class HomepageComponent implements OnInit{
       isFileSizeAllowed = true;
     }
     return isFileSizeAllowed;
-
   }
 
   dropped(files: NgxFileDropEntry[]) {
@@ -149,11 +147,6 @@ export class HomepageComponent implements OnInit{
     }
   }
 
-  fileOver(event) {
-  }
-
-  fileLeave(event) {
-  }
 
   isLogged() : boolean{
     return !!sessionStorage.getItem('username');

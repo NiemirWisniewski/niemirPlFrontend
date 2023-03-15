@@ -1,73 +1,59 @@
-<div class="flex-header-centered">
-  <div class="header-width">
-    <h1 class="headers-small">
-      Rejestracja<br/>
-    </h1>
-    <div class="separator"></div>
-  </div>
-</div>
+<div class="container">
+  <h1 class="loginH1">
+    Rejestracja
+  </h1>
+
+  <form class="registrationForm" (ngSubmit)="createUser()" [formGroup]="registrationForm">
+
+    <mat-form-field>
+      <mat-label>Email:</mat-label>
+      <input type="email" matInput [formControl]="email"
+             [errorStateMatcher]="sharedValidator"
+             placeholder="">
+      <mat-error *ngIf="email.hasError('email') || email.hasError('required')">
+        Adres email jest wymagany</mat-error>
+    </mat-form-field>
 
 
-<div class="registrationForm">
+    <mat-form-field>
+      <mat-label>Nazwa użytkownika:</mat-label>
+      <input type="text"
+             matInput [formControl]="username"
+             [errorStateMatcher]="sharedValidator"
+             placeholder="">
+      <mat-error
+        *ngIf="username.hasError('required')">
+        Nazwa użytkownika jest wymagana</mat-error>
+      <mat-error
+        *ngIf="username.hasError('minlength') || username.hasError('maxlength')">
+        Nazwa użytkownika musi mieć od 3 do 30 znaków.</mat-error>
+    </mat-form-field>
 
-  <form class="form" (ngSubmit)="createUser()" [formGroup]="registrationForm">
 
-    <div class="registrationField">
-      <mat-form-field >
-        <mat-label>Email:</mat-label>
-        <input type="email" matInput [formControl]="email"
-               [errorStateMatcher]="sharedValidator"
-        placeholder="">
-        <mat-error *ngIf="email.hasError('email') || email.hasError('required')">
-          Adres email jest wymagany</mat-error>
-      </mat-form-field>
-    </div>
+    <mat-form-field >
+      <mat-label>Hasło:</mat-label>
+      <input  type="password"
+              matInput [formControl]="password" [errorStateMatcher]="sharedValidator"
+              placeholder="">
+      <mat-error
+        *ngIf="password.hasError('required')">
+        Hasło jest wymagane</mat-error>
+      <mat-error
+        *ngIf="password.hasError('minlength') || password.hasError('maxlength')">
+        Hasło musi mieć od 5 do 20 znaków</mat-error>
+    </mat-form-field>
 
-    <div class="registrationField">
-      <mat-form-field>
-        <mat-label>Nazwa użytkownika:</mat-label>
-        <input class="inputRegForm" type="text"
-               matInput [formControl]="username"
-               [errorStateMatcher]="sharedValidator"
-               placeholder="">
-        <mat-error class="inputErrorRegFrom"
-                   *ngIf="username.hasError('required')">
-          Nazwa użytkownika jest wymagana</mat-error>
-        <mat-error class="inputErrorRegFrom"
-                   *ngIf="username.hasError('minlength') || username.hasError('maxlength')">
-          Nazwa użytkownika musi mieć od 3 do 30 znaków.</mat-error>
-      </mat-form-field>
-    </div>
+    <mat-form-field>
+      <mat-label>Powtórz hasło:</mat-label>
+      <input type="password" placeholder="" [readonly]="isPasswordError()"
+             matInput [formControl]="passwordRepeat" [errorStateMatcher]="twoPasswordsValidator">
+      <mat-error>
+        Powtórzone hasło nie pasuje do podanego hasła</mat-error>
+    </mat-form-field>
 
-    <div class="registrationField">
-      <mat-form-field >
-        <mat-label>Hasło:</mat-label>
-        <input class="inputRegForm" type="password"
-               matInput [formControl]="password" [errorStateMatcher]="sharedValidator"
-               placeholder="">
-        <mat-error class="inputErrorRegFrom"
-                   *ngIf="password.hasError('required')">
-          Hasło jest wymagane</mat-error>
-        <mat-error class="inputErrorRegFrom"
-                   *ngIf="password.hasError('minlength') || password.hasError('maxlength')">
-          Hasło musi mieć od 5 do 20 znaków</mat-error>
-      </mat-form-field>
-    </div>
+    <button class="submitButton"
+            type="submit">Zarejestruj
+    </button>
 
-    <div class="registrationField">
-      <mat-form-field>
-        <mat-label>Powtórz hasło:</mat-label>
-        <input type="password" placeholder="" [readonly]="isPasswordError()"
-               matInput [formControl]="passwordRepeat" [errorStateMatcher]="twoPasswordsValidator">
-        <mat-error>
-          Powtórzone hasło nie pasuje do podanego hasła</mat-error>
-      </mat-form-field>
-    </div>
-
-    <div class="submitButton">
-      <button class="button-register"
-              mat-raised-button
-              type="submit">Zarejestruj</button>
-    </div>
   </form>
 </div>
