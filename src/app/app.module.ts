@@ -9,8 +9,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderComponent} from './pages/header/header.component';
 import {ToastrModule} from 'ngx-toastr';
 import {RegistrationComponent} from './pages/registration/registration.component';
-import {NgxSpinnerModule} from 'ngx-spinner';
-import {SpinnerComponent} from './shared/spinner/spinner.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from "@angular/material/core";
@@ -31,8 +29,6 @@ import {PasswordResetComponent} from "./pages/login/password-reset/password-rese
 import {NewPasswordComponent} from "./pages/login/new-password/new-password.component";
 import {TokenExpiredComponent} from "./pages/login/token-expired/token-expired.component";
 import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatButtonModule} from "@angular/material/button";
 import {UserService} from "./services/user.service";
 import {HomeService} from "./services/home.service";
 
@@ -43,7 +39,6 @@ import {HomeService} from "./services/home.service";
     HeaderComponent,
     RegistrationComponent,
     LoginComponent,
-    SpinnerComponent,
     MikroblogComponent,
     QuillComponent,
     PostComponent,
@@ -71,7 +66,6 @@ import {HomeService} from "./services/home.service";
       autoDismiss: true,
       newestOnTop: true
     }),
-    NgxSpinnerModule.forRoot({type: 'ball-scale-multiple'}),
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
@@ -79,10 +73,8 @@ import {HomeService} from "./services/home.service";
     QuillModule.forRoot(),
     NgxFileDropModule,
     LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG}),
-    MatToolbarModule,
-    MatButtonModule,
   ],
-  exports: [SpinnerComponent],
+  exports: [],
   providers: [AuthenticationService, [
     {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}
   ], DownloadService, UserService, HomeService],
