@@ -23,7 +23,4 @@ export class SpinnerComponent{
   hide() : void {
     this.spinner.hide('sharedSpinner');
   }
-
-
-
 }

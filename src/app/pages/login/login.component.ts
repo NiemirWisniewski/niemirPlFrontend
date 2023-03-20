@@ -37,7 +37,7 @@ export class LoginComponent {
       console.log(JSON.stringify(this.usernameForm.value));
       this.authService.authenticate(this.getUsername().value, this.getPassword().value).subscribe(
         data => {
-          this.router.navigate(['homepage']);
+          this.router.navigate(['mikroblog']);
         },
         error => {
           this.toastr.error('Authentication failed', undefined, {

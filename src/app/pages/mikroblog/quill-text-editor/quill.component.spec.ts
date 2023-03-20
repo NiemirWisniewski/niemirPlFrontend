@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommentComponent } from './content.component';
+import { CommentComponent } from './quill.component';
 
 describe('CommentComponent', () => {
   let component: CommentComponent;

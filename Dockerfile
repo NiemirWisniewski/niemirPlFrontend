@@ -19,7 +19,7 @@ RUN npm run build
 #Use official nginx image
 FROM nginx
 
-#copy build output to replace default nginx content
+#copy build output to replace default nginx quill-text-editor
 COPY --from=build /usr/local/app/dist/niemir /usr/share/nginx/html
 
 #expose port

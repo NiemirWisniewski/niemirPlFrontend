@@ -1,9 +1,9 @@
 <div class="navigationColor">
   <nav class="navigationBar">
-  <a class="navigationLink" routerLink="/homepage">Mikroblog</a>
+  <a class="navigationLink" routerLink="/mikroblog">Mikroblog</a>
   <a class="navigationLink" routerLink="/bio">O Autorze</a>
   <a *ngIf="userLoggout()" class="navigationLink" routerLink="/login">Logowanie</a>
   <a *ngIf="userLoggout()" class="navigationLink" routerLink="/registration">Rejestracja</a>
-  <a *ngIf="userLogged()" class="navigationLink" routerLink="/logout">Wyloguj</a>
+  <a *ngIf="!userLoggout()" class="navigationLink" routerLink="/logout">Wyloguj</a>
   </nav>
 </div>

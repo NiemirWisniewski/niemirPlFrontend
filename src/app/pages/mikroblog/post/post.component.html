@@ -1,10 +1,11 @@
 <div class="postStyling">
   <p style="background-color: #e5cf3d; padding: .5em .5em;
-  border-radius: .5em; display: inline">
+  border-radius: .5em; width: fit-content;">
     <strong><em>{{post.author}}:</em></strong></p>
   <p [innerHTML]="post.content"
      style="background-color: #55bfe0; padding: .5em .5em;
-  border-radius: .5em; display: inline-block; margin-left: .5em;"></p>
+  border-radius: .5em; margin-left: .5em;
+  width: fit-content; word-break: break-word"></p>
   <img [src]="post.image" class="imageStyling"/>
 </div>
 
