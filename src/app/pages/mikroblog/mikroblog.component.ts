@@ -1,43 +1,66 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HomeService} from "../../services/home.service";
 import {ToastrService} from "ngx-toastr";
 import {Post} from "../../domain/post";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgxFileDropEntry} from "ngx-file-drop";
-import {SpinnerComponent} from "../../shared/spinner/spinner.component";
-import {finalize, Observable} from "rxjs";
+import {BehaviorSubject, finalize} from "rxjs";
 import {NGXLogger} from "ngx-logger";
+import {Page} from "../../domain/page";
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+  selector: 'app-mikroblog',
+  templateUrl: './mikroblog.component.html',
+  styleUrls: ['./mikroblog.component.scss']
 })
-export class HomepageComponent implements OnInit{
-
-  @ViewChild(SpinnerComponent) spinner;
-  imageUrl: any;
+export class MikroblogComponent implements OnInit{
 
   constructor(private homeService: HomeService, private logger : NGXLogger, private toastr: ToastrService) {
   }
 
+  imageUrl: any;
+  page : Page;
   posts : Post[] = [];
+  private currentPageSubject = new BehaviorSubject<number>(0);
+  currentPage$ = this.currentPageSubject.asObservable();
 
-  ngOnInit(): void {
-    this.homeService.getPosts().subscribe(
-      posts => {
-        this.posts = posts;
-      },
-      error => {
-        this.toastr.error('Getting posts failed', undefined, {
-          positionClass: 'toast-top-center'
-        });
-        console.log('[Response error] >>> ' + error.error?.message);
-      }
-    );
+  postsLoaded() : boolean {
+    return !!this.page.totalPages;
   }
 
-  contentControl = new FormControl("", [Validators.required, Validators.maxLength((200))]);
+  ngOnInit(): void {
+    this.homeService.getPosts(0).subscribe({
+      next: page => {
+        this.page = page;
+        this.currentPageSubject.next(page.number);
+        this.posts = page.content;
+      },
+      error: error => {
+        this.toastr.error('Nie udało się wyświetlić postów', undefined);
+        console.log('[Response error] >>> ' + error.error?.message);
+      }
+    });
+  }
+
+  goToPage(pageNumber?: number): void {
+    this.homeService.getPosts(pageNumber).subscribe({
+      next: posts => {
+        this.currentPageSubject.next(pageNumber);
+        this.page = posts;
+        this.posts = posts.content;
+      },
+      error: error => {
+        this.toastr.error('Nie udało się wyświetlić postów', undefined);
+        console.log('[Response error] >>> ' + error.error?.message);
+      }
+    });
+  }
+
+  goToNextOrPreviousPage(direction? : string) : void{
+    this.goToPage(direction === 'Następna' ? this.currentPageSubject.value + 1 : this.currentPageSubject.value - 1);
+  }
+
+  contentControl = new FormControl("", [Validators.required, Validators.maxLength((250))]);
   imageControl = new FormControl( null,[]);
 
   postForm = new FormGroup({
@@ -51,7 +74,6 @@ export class HomepageComponent implements OnInit{
 
   onContentChangeEvent(content) {
     this.contentEntered = content;
-    console.log(this.contentEntered);
   }
   formSubmitted = false;
 
@@ -65,30 +87,24 @@ export class HomepageComponent implements OnInit{
       const post = new Post();
       post.content = this.contentControl.value;
       post.author = sessionStorage.getItem('username');
-      // It's good to set timestamp as a name of the file.
-      // In case of lack of permission to update file (in your OS) you won't have
-      // possibility to replace file with the same name and you are in stuck.
-      // This method will always create a new file, because even you put
-      // into the component image with existing name, its final name will always be different.
       if(this.imageControl.value !== null){
         post.imageUrl = new Date().getTime().toString();
       }
 
       console.log(post);
       this.homeService.postPost(post, this.imageControl.value).pipe(finalize(() => {
-        this.spinner.hide();
       })).subscribe(
         data => {
-          this.toastr.success('Item has been saved successfully', undefined, {
-            positionClass: 'toast-top-center'
-          });
+          this.toastr.success('Pomyślnie dodano post', undefined);
           this.formSubmitted = false;
           this.ngOnInit();
-          //this._loadItems();
+          this.contentControl.setValue("");
+          this.imageUrl = null;
+          this.files = [];
         },
         error => {
           this.formSubmitted = false;
-          this.toastr.error('Saving item failed', undefined, {
+          this.toastr.error('Nie udało się dodać posta', undefined, {
             positionClass: 'toast-top-center'
           });
           this.logger.error('[Response error] >>> ', error.error?.message);

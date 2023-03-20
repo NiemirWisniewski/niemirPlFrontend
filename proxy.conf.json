@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://backend.bieda.it",
+    "target": "https://backend.toadres.pl",
     "secure": true,
     "changeOrigin": true,
     "pathRewrite": {

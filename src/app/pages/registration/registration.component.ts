@@ -1,14 +1,12 @@
 import {Component, ViewChild} from '@angular/core';
 import {User} from "../../domain/user";
 import {finalize} from "rxjs";
-import {SpinnerComponent} from "../../shared/spinner/spinner.component";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {TwoPasswordsValidator} from "../../shared/validator/two.passwords.validator";
 import {SharedValidator} from "../../shared/validator/shared.validator";
 import {Router} from "@angular/router";
 import {ToastrService} from 'ngx-toastr';
 import {UserService} from "../../services/user.service";
-import {HttpErrorResponse} from "@angular/common/http";
 
 
 @Component({
@@ -17,9 +15,6 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent {
-
-  @ViewChild(SpinnerComponent) spinner;
-
 
   email = new FormControl('', [
     Validators.required,

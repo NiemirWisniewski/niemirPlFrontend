@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {RegistrationComponent} from "./pages/registration/registration.component";
 import {LoginComponent} from "./pages/login/login.component";
-import {HomepageComponent} from "./pages/homepage/homepage.component";
-import {PostComponent} from "./pages/post/post.component";
+import {MikroblogComponent} from "./pages/mikroblog/mikroblog.component";
+import {PostComponent} from "./pages/mikroblog/post/post.component";
 import {LogoutComponent} from "./pages/logout/logout.component";
 import {BiographyComponent} from "./pages/biography/biography.component";
 import {PasswordResetComponent} from "./pages/login/password-reset/password-reset.component";
@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/bio', pathMatch: 'full'},
   {path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'homepage', component: HomepageComponent},
+  {path: 'mikroblog', component: MikroblogComponent},
   {path: 'post', component: PostComponent},
   {path: 'logout', component:LogoutComponent},
   {path: 'bio', component: BiographyComponent},

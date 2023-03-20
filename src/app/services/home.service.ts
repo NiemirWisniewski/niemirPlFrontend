@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {HttpClientHelper} from "../shared/http.client.default";
 import {Post} from "../domain/post";
 import {tap} from "rxjs/operators";
+import {Page} from "../domain/page";
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +29,8 @@ export class HomeService {
     }
   }
 
-  getPosts(): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(`${HttpClientHelper.apiURL}/posts/`);
+  getPosts(page : number): Observable<Page> {
+    return this.httpClient.get<Page>(`${HttpClientHelper.baseURL}/posts?offset=${page}`);
   }
 
   getImage(id : number): Observable<ArrayBuffer> {

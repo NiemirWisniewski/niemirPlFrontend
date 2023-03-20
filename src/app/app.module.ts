@@ -9,19 +9,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderComponent} from './pages/header/header.component';
 import {ToastrModule} from 'ngx-toastr';
 import {RegistrationComponent} from './pages/registration/registration.component';
-import {NgxSpinnerModule} from 'ngx-spinner';
-import {SpinnerComponent} from './shared/spinner/spinner.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {CommonModule} from "@angular/common";
-import {HomepageComponent} from "./pages/homepage/homepage.component";
+import {MikroblogComponent} from "./pages/mikroblog/mikroblog.component";
 import {QuillModule} from "ngx-quill";
-import {ContentComponent} from "./pages/homepage/content/content.component";
+import {QuillComponent} from "./pages/mikroblog/quill-text-editor/quill.component";
 import {NgxFileDropModule} from "ngx-file-drop";
 import {LoggerModule, NgxLoggerLevel} from "ngx-logger";
-import {PostComponent} from "./pages/post/post.component";
+import {PostComponent} from "./pages/mikroblog/post/post.component";
 import {LogoutComponent} from "./pages/logout/logout.component";
 import {HttpRequestInterceptor} from './services/http-request-interceptor';
 import {AuthenticationService} from "./services/auth.service";
@@ -31,8 +29,8 @@ import {PasswordResetComponent} from "./pages/login/password-reset/password-rese
 import {NewPasswordComponent} from "./pages/login/new-password/new-password.component";
 import {TokenExpiredComponent} from "./pages/login/token-expired/token-expired.component";
 import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatButtonModule} from "@angular/material/button";
+import {UserService} from "./services/user.service";
+import {HomeService} from "./services/home.service";
 
 
 @NgModule({
@@ -41,9 +39,8 @@ import {MatButtonModule} from "@angular/material/button";
     HeaderComponent,
     RegistrationComponent,
     LoginComponent,
-    SpinnerComponent,
-    HomepageComponent,
-    ContentComponent,
+    MikroblogComponent,
+    QuillComponent,
     PostComponent,
     LogoutComponent,
     BiographyComponent,
@@ -63,12 +60,12 @@ import {MatButtonModule} from "@angular/material/button";
     ToastrModule.forRoot({
       maxOpened: 2,
       preventDuplicates: true,
-      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      timeOut: 5000,
       closeButton: true,
       autoDismiss: true,
       newestOnTop: true
     }),
-    NgxSpinnerModule.forRoot({type: 'ball-scale-multiple'}),
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
@@ -76,13 +73,11 @@ import {MatButtonModule} from "@angular/material/button";
     QuillModule.forRoot(),
     NgxFileDropModule,
     LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG}),
-    MatToolbarModule,
-    MatButtonModule,
   ],
-  exports: [SpinnerComponent],
+  exports: [],
   providers: [AuthenticationService, [
     {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}
-  ], DownloadService],
+  ], DownloadService, UserService, HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

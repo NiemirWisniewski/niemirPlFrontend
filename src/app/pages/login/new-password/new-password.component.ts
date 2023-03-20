@@ -5,7 +5,6 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TwoPasswordsValidator} from "../../../shared/validator/two.passwords.validator";
 import {SharedValidator} from "../../../shared/validator/shared.validator";
-import {SpinnerComponent} from "../../../shared/spinner/spinner.component";
 import {finalize} from "rxjs";
 
 @Component({
@@ -14,8 +13,6 @@ import {finalize} from "rxjs";
   styleUrls: ['./new-password.component.scss']
 })
 export class NewPasswordComponent implements OnInit{
-
-  @ViewChild(SpinnerComponent) spinner;
 
   password = new FormControl('', [
     Validators.required, Validators.minLength(6), Validators.maxLength(10)]);
@@ -52,9 +49,8 @@ export class NewPasswordComponent implements OnInit{
       this.authService.newPassword(this.getPassword().value,
         this.getPasswordRepeat().value,
         this.token).pipe(finalize(() => {
-        this.spinner.hide();
-      })).subscribe(
-        data => {
+      })).subscribe({
+        next: data => {
           this.toastr.success('Password has been changed', this.toastrNoTitle, {
             positionClass: 'toast-top-center'
           });
@@ -62,10 +58,10 @@ export class NewPasswordComponent implements OnInit{
             this.router.navigate(['login']);
           }, 2000);
         },
-        error => {
+        error: error => {
           this.router.navigate(['tokenExpired']);
         }
-      );
+      });
     }
   }
 

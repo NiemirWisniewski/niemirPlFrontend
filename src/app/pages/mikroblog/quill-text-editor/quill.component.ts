@@ -2,11 +2,11 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AbstractControl, FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  selector: 'app-quill',
+  templateUrl: './quill.component.html',
+  styleUrls: ['./quill.component.scss']
 })
-export class ContentComponent {
+export class QuillComponent {
 
   @Input() content : AbstractControl = new FormControl();
   @Output() private onContentChange = new EventEmitter<string>();
