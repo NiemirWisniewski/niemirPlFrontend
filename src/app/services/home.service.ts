@@ -20,11 +20,11 @@ export class HomeService {
     formData.append('postRequest', new Blob([json],
       {type: 'application/json;charset=UTF-8'}));
     if (imageFile == null) {
-      return this.httpClient.post(`${HttpClientHelper.baseURL}/posts`, formData,
+      return this.httpClient.post(`${HttpClientHelper.apiURL}/posts`, formData,
       ).pipe(tap(console.log));
     } else {
       formData.append('file', imageFile, post.imageUrl);
-      return this.httpClient.post(`${HttpClientHelper.baseURL}/posts`, formData,
+      return this.httpClient.post(`${HttpClientHelper.apiURL}/posts`, formData,
       ).pipe(tap(console.log));
     }
   }
@@ -34,7 +34,7 @@ export class HomeService {
   }
 
   getImage(id : number): Observable<ArrayBuffer> {
-    return this.httpClient.get<ArrayBuffer>(`${HttpClientHelper.baseURL}/images/`+ id, {
+    return this.httpClient.get<ArrayBuffer>(`${HttpClientHelper.apiURL}/images/`+ id, {
       // @ts-ignore
       responseType: 'arrayBuffer'});
   }

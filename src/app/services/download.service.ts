@@ -11,7 +11,7 @@ export class DownloadService {
   }
 
   downloadCV() : Observable<HttpEvent<Blob>>{
-    return this.httpClient.get(`${HttpClientHelper.baseURL}/cv`, {
+    return this.httpClient.get(`${HttpClientHelper.apiURL}/cv`, {
       reportProgress : true,
       observe: 'events',
     responseType: 'blob'})
